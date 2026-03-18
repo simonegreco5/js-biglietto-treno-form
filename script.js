@@ -27,15 +27,30 @@ formScript.addEventListener('submit', function(e){
 
     // condizione scontistiche (under 18 / over 65)
     if (userAge < 18){
-        console.log(fullPrice * (1 - 20 / 100))
+        // console.log(fullPrice * (1 - 20 / 100))
+        let priceUnder = fullPrice * (1 - 20 / 100)
+        let resultUnder = priceUnder.toFixed(2)
+        console.log(resultUnder)
+
 
     } else if (userAge > 65){
-        console.log(fullPrice * (1 - 40 / 100))
+        // console.log(fullPrice * (1 - 40 / 100))
+        let priceOver = fullPrice * (1 - 40 / 100)
+        let resultOver = priceOver.toFixed(2)
+        console.log(resultOver);
+        
 
     } else {
-        console.log(fullPrice)
-
+        // console.log(fullPrice)
+        // let fullPrice 
+        let resultFull = fullPrice.toFixed(2)
+        console.log(resultFull);
+    
+        
     }
+    // stampiamo i prezzi con massimo 2 decimali 
+    // usando il metodo .toFixed()
+
 
 })
 
