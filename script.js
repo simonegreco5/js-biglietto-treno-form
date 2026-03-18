@@ -6,6 +6,12 @@ const userAgeScript = document.getElementById('user-age')
 const buttonScript = document.getElementById('button')
 const formScript = document.querySelector('form')
 
+// selezioniamo i nodi del dom della card biglietto 
+const numero = document.querySelector('.numero')
+const prezzo = document.querySelector('.prezzo')
+const posto = document.querySelector('.posto')
+const carrozza = document.querySelector('.carrozza')
+
 // dato - costante prezzo per chilometro
 const kmPrice = 0.21
 
@@ -54,17 +60,13 @@ formScript.addEventListener('submit', function(e){
     let finalResult = Number(finalPrice).toFixed(2)
     
 
-    // selezioniamo i nodi del dom della card biglietto 
-    const numero = document.querySelector('.numero')
-    const prezzo = document.querySelector('.prezzo')
-    const posto = document.querySelector('.posto')
-    const carrozza = document.querySelector('.carrozza')
-
     // generiamo dei numeri casuali per il biglietto
     let postoCasuale = Math.floor((Math.random() * 30) + 1)
     let carrozzaCasuale = Math.floor((Math.random() * 12) + 1)
     let numeroCasuale = Math.floor((Math.random() * 10000) + 1000)
 
+
+    // STAMPIAMO I VALORI NEL BIGLIETTO
     numero.innerText = numeroCasuale
     prezzo.innerText = `${finalResult} €`
     posto.innerText = `${postoCasuale}B`
