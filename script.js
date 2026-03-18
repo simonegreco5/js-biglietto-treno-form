@@ -22,35 +22,44 @@ formScript.addEventListener('submit', function(e){
     let userKmRun = kmRunScript.value
     let userAge = userAgeScript.value
 
+    // calcoliamo il prezzo senza scontistiche applicate
     let fullPrice = kmPrice * userKmRun
     console.log(fullPrice)
+
+
+    // creiamo le variabili dove poi aggiungeremo i vari prezzi
+    let priceUnder = ''
+    let priceOver = ''
 
     // condizione scontistiche (under 18 / over 65)
     if (userAge < 18){
         // console.log(fullPrice * (1 - 20 / 100))
-        let priceUnder = fullPrice * (1 - 20 / 100)
-        let resultUnder = priceUnder.toFixed(2)
-        console.log(resultUnder)
-
+        priceUnder = fullPrice * (1 - 20 / 100)
+    
 
     } else if (userAge > 65){
         // console.log(fullPrice * (1 - 40 / 100))
-        let priceOver = fullPrice * (1 - 40 / 100)
-        let resultOver = priceOver.toFixed(2)
-        console.log(resultOver);
-        
+        priceOver = fullPrice * (1 - 40 / 100)
 
+        
     } else {
-        // console.log(fullPrice)
-        // let fullPrice 
-        let resultFull = fullPrice.toFixed(2)
-        console.log(resultFull);
+        fullPrice 
     
-        
     }
-    // stampiamo i prezzi con massimo 2 decimali 
-    // usando il metodo .toFixed()
 
+    // stampiamo i prezzi con massimo 2 decimali (creando nuove variabili)
+    // usando il metodo .toFixed() 
+    // --> questo ci servirà per aggiungerli successivamente nella card finale che l'utente vedrà
+    // adoperiamo Number() per rendere i numeri dei valori numerici e non più delle stringhe
+
+    // prezzo under 18 (-20%)
+    let resultUnder = Number(priceUnder).toFixed(2)
+    // prezzo over 65 (-40%)
+    let resultOver = Number(priceOver).toFixed(2)
+    // prezzo full
+    let resultFull = fullPrice.toFixed(2)
+
+    
 
 })
 
